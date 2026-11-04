@@ -1,0 +1,1353 @@
+/* src/pages/Login.css */
+.login-full-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-content-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #e6e4e8 100%);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header Styles */
+.college-header {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  padding: 12px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo-container {
+  margin-right: 15px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.college-logo {
+  height: 60px;
+  width: auto;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.college-info {
+  text-align: left;
+  flex: 1;
+}
+
+.college-info h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.ugc-autonomous {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+  font-weight: 600;
+}
+
+.college-address {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+/* Footer Styles */
+.college-footer {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  padding: 15px 0;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.copyright p {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.developer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.developer-info p {
+  margin: 0;
+  font-size: 0.85rem;
+  opacity: 0.9;
+}
+
+.vsoft-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.vsoft-logo {
+  height: 20px;
+  width: auto;
+  border-radius: 3px;
+}
+
+.vsoft-info span {
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.linkedin-link {
+  display: flex;
+  align-items: center;
+  transition: opacity 0.3s;
+  margin-left: 5px;
+}
+
+.linkedin-link:hover {
+  opacity: 0.8;
+}
+
+/* Login Form Styles */
+.login-container {
+  width: 100%;
+  max-width: 380px;
+}
+
+.auth-form {
+  padding: 25px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3498db, #2ecc71, #3498db);
+  background-size: 200% 100%;
+  animation: gradientShift 3s ease infinite;
+  border-radius: 10px 10px 0 0;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.auth-form h2 {
+  color: #2c3e50;
+  margin-bottom: 12px;
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.auth-form p {
+  color: #7f8c8d;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.form-group {
+  margin-bottom: 18px;
+  text-align: left;
+  position: relative;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e6e6e6;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.form-group input::placeholder {
+  color: #a0a0a0;
+  font-size: 13px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 100%;
+  margin-bottom: 15px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(52, 152, 219, 0.3);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.auth-switch {
+  margin-top: 15px;
+  color: #7f8c8d;
+  font-size: 0.85rem;
+}
+
+.auth-switch span {
+  color: #3498db;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.auth-switch span:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+
+/* ENHANCED: Hallticket not found message */
+.hallticket-not-found-message {
+  background-color: #fff3cd;
+  border: 1px solid #ffeeba;
+  color: #856404;
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: slideDown 0.3s ease-out;
+}
+
+.hallticket-not-found-message span {
+  font-size: 1.1rem;
+}
+
+.hallticket-not-found-message strong {
+  font-weight: 700;
+  color: #533f03;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Password Input Group Styles */
+.password-input-group {
+  position: relative;
+}
+
+.password-input-group input {
+  padding-right: 50px !important;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+  background: transparent;
+  padding: 5px;
+  border-radius: 4px;
+  z-index: 3;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.password-toggle:hover {
+  opacity: 1;
+  background: #f0f0f0;
+}
+
+.password-toggle:active {
+  background: #e0e0e0;
+}
+
+/* Validation Styles */
+.validation-message {
+  font-size: 0.75rem;
+  margin-top: 6px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  line-height: 1.3;
+}
+
+.validation-message.valid {
+  color: #28a745;
+  background: rgba(40, 167, 69, 0.1);
+  border-left: 3px solid #28a745;
+}
+
+.validation-message.invalid {
+  color: #dc3545;
+  background: rgba(220, 53, 69, 0.1);
+  border-left: 3px solid #dc3545;
+}
+
+input.valid {
+  border-color: #28a745 !important;
+  background: rgba(40, 167, 69, 0.02);
+}
+
+input.invalid {
+  border-color: #dc3545 !important;
+  background: rgba(220, 53, 69, 0.02);
+}
+
+/* Loading spinner */
+.loading-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Password strength indicator */
+.password-strength {
+  height: 4px;
+  border-radius: 2px;
+  margin-top: 8px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.password-strength.weak {
+  background: #dc3545;
+  width: 33%;
+}
+
+.password-strength.medium {
+  background: #ffc107;
+  width: 66%;
+}
+
+.password-strength.strong {
+  background: #28a745;
+  width: 100%;
+}
+
+/* Form group spacing adjustments */
+.form-group:last-of-type {
+  margin-bottom: 5px;
+}
+
+/* Enhanced focus states for accessibility */
+.password-toggle:focus {
+  outline: 2px solid #3498db;
+  outline-offset: 1px;
+}
+
+/* Improved disabled state styling */
+.form-group input:disabled {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.password-toggle:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.password-toggle:disabled:hover {
+  background: transparent;
+  opacity: 0.4;
+}
+
+/* Technical Support Styles */
+.support-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.support-modal {
+  background: white;
+  border-radius: 15px;
+  max-width: 450px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.support-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 15px 15px 0 0;
+}
+
+.support-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.support-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.support-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.support-content {
+  padding: 20px;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.developer-photo-section {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.developer-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #667eea;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.developer-badge {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.badge-icon {
+  font-size: 0.8rem;
+}
+
+.contact-info h4 {
+  margin: 0 0 5px 0;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.developer-role {
+  color: #667eea;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+  font-size: 0.9rem;
+}
+
+.contact-details {
+  text-align: left;
+  width: 100%;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0;
+  color: #555;
+  word-break: break-word;
+}
+
+.contact-icon {
+  font-size: 1.1rem;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.contact-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.contact-actions button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 1;
+  min-width: 100px;
+  justify-content: center;
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: white;
+}
+
+.btn-call {
+  background: #3498db;
+  color: white;
+}
+
+.contact-actions button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.quick-solutions {
+  margin-top: 25px;
+}
+
+.quick-solutions h4 {
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center;
+}
+
+.solutions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.solution-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.solution-item:hover {
+  background: #e9ecef;
+  transform: translateX(5px);
+}
+
+.solution-icon {
+  font-size: 1.2rem;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.solution-item strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.solution-item p {
+  margin: 0;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.support-footer {
+  margin-top: 20px;
+  text-align: center;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  color: #666;
+}
+
+.support-footer p {
+  margin: 0;
+  font-style: italic;
+}
+
+.tech-support-link {
+  margin-top: 15px;
+  font-size: 0.9em;
+  color: #7f8c8d;
+  text-align: center;
+}
+
+.tech-support-link span {
+  color: #3498db;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+
+.tech-support-link span:hover {
+  color: #2980b9;
+}
+
+/* ENHANCED: Mobile Responsive Design */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 15px;
+    gap: 10px;
+  }
+  
+  .logo-container {
+    margin-right: 0;
+  }
+  
+  .college-logo {
+    height: 50px;
+  }
+  
+  .college-info {
+    text-align: center;
+  }
+  
+  .college-info h1 {
+    font-size: 1.3rem;
+    word-break: break-word;
+  }
+  
+  .ugc-autonomous {
+    font-size: 0.85rem;
+  }
+  
+  .college-address {
+    font-size: 0.8rem;
+    word-break: break-word;
+  }
+  
+  .footer-content {
+    text-align: center;
+  }
+  
+  .vsoft-info {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .login-content-wrapper {
+    padding: 15px;
+  }
+  
+  .auth-form {
+    padding: 20px;
+  }
+  
+  .auth-form h2 {
+    font-size: 1.3rem;
+  }
+  
+  .form-group input {
+    padding: 11px 14px;
+  }
+  
+  .password-toggle {
+    right: 12px;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+  
+  .password-input-group input {
+    padding-right: 45px !important;
+  }
+  
+  .support-modal {
+    max-width: 90%;
+  }
+  
+  .contact-actions {
+    flex-wrap: wrap;
+  }
+  
+  .contact-actions button {
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .college-header {
+    padding: 10px 0;
+  }
+  
+  .college-info h1 {
+    font-size: 1.2rem;
+    line-height: 1.3;
+  }
+  
+  .college-logo {
+    height: 45px;
+  }
+  
+  .college-footer {
+    padding: 12px 0;
+  }
+  
+  .copyright p,
+  .developer-info p {
+    font-size: 0.8rem;
+  }
+  
+  .login-content-wrapper {
+    padding: 10px;
+  }
+  
+  .auth-form {
+    padding: 18px;
+  }
+  
+  .auth-form h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .auth-form p {
+    margin-bottom: 15px;
+    font-size: 0.85rem;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group input {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  
+  .password-toggle {
+    right: 10px;
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
+  }
+  
+  .password-input-group input {
+    padding-right: 40px !important;
+  }
+  
+  .btn-primary {
+    padding: 11px 14px;
+    font-size: 13px;
+  }
+  
+  .validation-message {
+    font-size: 0.7rem;
+    padding: 5px 6px;
+  }
+  
+  .hallticket-not-found-message {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+    flex-wrap: wrap;
+  }
+  
+  /* Technical Support Modal Mobile Styles */
+  .support-modal {
+    max-width: 95%;
+    max-height: 85vh;
+  }
+  
+  .support-header {
+    padding: 15px;
+  }
+  
+  .support-header h3 {
+    font-size: 1.1rem;
+  }
+  
+  .support-content {
+    padding: 15px;
+  }
+  
+  .developer-photo {
+    width: 90px;
+    height: 90px;
+  }
+  
+  .developer-badge {
+    padding: 3px 6px;
+    font-size: 0.65rem;
+  }
+  
+  .contact-info h4 {
+    font-size: 1.1rem;
+  }
+  
+  .developer-role {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+  
+  .contact-item {
+    font-size: 0.85rem;
+    margin: 6px 0;
+  }
+  
+  .contact-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .contact-actions button {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+  
+  .quick-solutions h4 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .solution-item {
+    padding: 10px;
+  }
+  
+  .solution-item strong {
+    font-size: 0.9rem;
+  }
+  
+  .solution-item p {
+    font-size: 0.8rem;
+  }
+  
+  .solution-icon {
+    font-size: 1rem;
+  }
+  
+  .support-footer p {
+    font-size: 0.8rem;
+  }
+  
+  .tech-support-link {
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 360px) {
+  .college-info h1 {
+    font-size: 1rem;
+  }
+  
+  .ugc-autonomous,
+  .college-address {
+    font-size: 0.75rem;
+  }
+  
+  .college-logo {
+    height: 40px;
+  }
+  
+  .auth-form {
+    padding: 15px;
+  }
+  
+  .auth-form h2 {
+    font-size: 1.1rem;
+  }
+  
+  .form-group input {
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+  
+  .password-toggle {
+    right: 8px;
+    width: 25px;
+    height: 25px;
+    font-size: 14px;
+  }
+  
+  .password-input-group input {
+    padding-right: 35px !important;
+  }
+  
+  .btn-primary {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+  
+  .hallticket-not-found-message {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+  
+  .developer-photo {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .contact-actions button {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Landscape Mode Support */
+@media (max-height: 600px) and (orientation: landscape) {
+  .login-content-wrapper {
+    padding: 10px;
+  }
+  
+  .auth-form {
+    padding: 15px;
+  }
+  
+  .form-group {
+    margin-bottom: 12px;
+  }
+  
+  .college-header {
+    padding: 8px 0;
+  }
+  
+  .college-footer {
+    padding: 8px 0;
+  }
+  
+  .support-modal {
+    max-height: 90vh;
+  }
+}
+
+/* Tablet Specific Adjustments */
+@media (min-width: 481px) and (max-width: 768px) and (orientation: portrait) {
+  .auth-form {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .college-logo {
+    height: 55px;
+  }
+  
+  .college-info h1 {
+    font-size: 1.4rem;
+  }
+}
+
+/* High DPI Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .college-logo,
+  .vsoft-logo,
+  .developer-photo {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .loading-spinner,
+  .auth-form::before,
+  .support-modal,
+  .hallticket-not-found-message {
+    animation: none;
+  }
+  
+  .loading-spinner {
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-top-color: transparent;
+  }
+  
+  .btn-primary:hover:not(:disabled) {
+    transform: none;
+  }
+  
+  .solution-item:hover {
+    transform: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .form-group input {
+    border-width: 3px;
+  }
+  
+  .validation-message {
+    border-left-width: 4px;
+    font-weight: 600;
+  }
+  
+  .password-toggle {
+    border: 2px solid #000;
+  }
+  
+  .hallticket-not-found-message {
+    border: 2px solid #856404;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .auth-form {
+    background: #2d3748;
+    color: #e2e8f0;
+  }
+  
+  .auth-form h2 {
+    color: #e2e8f0;
+  }
+  
+  .auth-form p {
+    color: #a0aec0;
+  }
+  
+  .form-group input {
+    background: #4a5568;
+    border-color: #4a5568;
+    color: #e2e8f0;
+  }
+  
+  .form-group input:focus {
+    border-color: #4299e1;
+    background: #4a5568;
+  }
+  
+  .form-group input::placeholder {
+    color: #a0aec0;
+  }
+  
+  .password-toggle {
+    background: transparent;
+    color: #e2e8f0;
+  }
+  
+  .password-toggle:hover {
+    background: #5a6578;
+  }
+  
+  .support-modal {
+    background: #2d3748;
+    color: #e2e8f0;
+  }
+  
+  .contact-card,
+  .solution-item {
+    background: #4a5568;
+  }
+  
+  .contact-info h4,
+  .quick-solutions h4 {
+    color: #e2e8f0;
+  }
+  
+  .contact-item,
+  .solution-item p,
+  .support-footer p {
+    color: #a0aec0;
+  }
+  
+  .support-footer {
+    border-top-color: #4a5568;
+  }
+  
+  .hallticket-not-found-message {
+    background: #744210;
+    border-color: #975a16;
+    color: #fef3c7;
+  }
+  
+  .hallticket-not-found-message strong {
+    color: #fef3c7;
+  }
+}
+
+/* Print styles */
+@media print {
+  .login-content-wrapper {
+    background: white !important;
+  }
+  
+  .auth-form {
+    box-shadow: none;
+    border: 2px solid #000;
+  }
+  
+  .password-toggle,
+  .tech-support-link,
+  .support-modal-overlay {
+    display: none;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .btn-primary:hover:not(:disabled) {
+    transform: none;
+  }
+  
+  .password-toggle:hover {
+    background: transparent;
+  }
+  
+  .password-toggle:active {
+    background: #f0f0f0;
+  }
+  
+  .solution-item:hover {
+    transform: none;
+  }
+  
+  .contact-actions button:hover {
+    transform: none;
+  }
+  
+  .auth-switch span,
+  .tech-support-link span {
+    padding: 8px 0;
+    display: inline-block;
+  }
+}
+
+/* =============================================
+   Responsive enhancements (mobile safety net)
+   ============================================= */
+.login-full-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.login-content-wrapper {
+  width: 100%;
+  padding-left: max(20px, env(safe-area-inset-left));
+  padding-right: max(20px, env(safe-area-inset-right));
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-form {
+  width: 100%;
+}
+
+.auth-form h2,
+.auth-form p,
+.hallticket-not-found-message,
+.validation-message {
+  overflow-wrap: anywhere;
+}
+
+/* Keep 16px inputs on touch devices to stop iOS auto-zoom */
+@media (max-width: 768px) {
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 16px;
+  }
+
+  .password-input-group input {
+    padding-right: 48px !important;
+  }
+
+  .btn-primary {
+    min-height: 48px;
+  }
+
+  .support-modal-overlay {
+    padding: 12px;
+    padding-top: max(12px, env(safe-area-inset-top));
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+  }
+
+  .support-modal {
+    max-height: calc(100vh - 24px);
+    max-height: calc(100dvh - 24px);
+  }
+}
+
+@media (max-width: 480px) {
+  .login-content-wrapper {
+    padding: 12px;
+    padding-left: max(12px, env(safe-area-inset-left));
+    padding-right: max(12px, env(safe-area-inset-right));
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 16px;
+    padding: 12px 14px;
+  }
+
+  .auth-form h2 {
+    font-size: 1.15rem;
+  }
+
+  .auth-form p {
+    font-size: 0.84rem;
+  }
+
+  .btn-primary {
+    font-size: 0.95rem;
+  }
+
+  .contact-actions button {
+    min-height: 46px;
+  }
+}
+
+@media (max-width: 360px) {
+  .login-content-wrapper {
+    padding: 10px;
+  }
+
+  .auth-form {
+    padding: 14px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 16px;
+    padding: 11px 12px;
+  }
+
+  .contact-actions button {
+    font-size: 0.85rem;
+  }
+}
