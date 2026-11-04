@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './AdminLogin.css';
 import API_BASE_URL from './config/api';
+
+const LOGIN_TIMEOUT_MS = 60000;
 
 function AdminLogin({ onLogin }) {
   const [formData, setFormData] = useState({
@@ -11,6 +13,11 @@ function AdminLogin({ onLogin }) {
     password: ''
   });
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    // Wake a sleeping Render backend while the admin types their credentials.
+    axios.get(`${API_BASE_URL}/health`, { timeout: LOGIN_TIMEOUT_MS }).catch(() => {});
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -29,7 +36,9 @@ function AdminLogin({ onLogin }) {
 
     setLoading(true);
     try {
-      const response = await axios.post(`${API_BASE_URL}/admin/login`, formData);
+      const response = await axios.post(`${API_BASE_URL}/admin/login`, formData, {
+        timeout: LOGIN_TIMEOUT_MS
+      });
       
       if (response.data.success) {
         // Store admin info and token
@@ -41,7 +50,9 @@ function AdminLogin({ onLogin }) {
       }
     } catch (error) {
       console.error('Login error:', error);
-      if (error.response?.data?.error) {
+      if (error.code === 'ECONNABORTED' || error.message?.includes('timeout')) {
+        toast.error('The server is waking up. Please wait a few seconds and try again.');
+      } else if (error.response?.data?.error) {
         toast.error(error.response.data.error);
       } else {
         toast.error('Login failed. Please try again.');

@@ -76,8 +76,9 @@ frontend after changing it. Then add those frontend origins to the backend's
 CORS_ORIGINS=https://scient-feedback-tool-admin.onrender.com,https://scient-feedback-tool-student.onrender.com,https://scient-feedback-tool-principal.onrender.com
 ```
 
-Local development on `localhost` / `127.0.0.1` is always allowed and does not
-need to be listed.
+Local development on `localhost` / `127.0.0.1` and all
+`scient-feedback*.onrender.com` project frontends are always allowed and do not
+need to be listed. Use `CORS_ORIGINS` only for custom domains.
 
 ## 5. Verify the deployment
 
@@ -97,7 +98,7 @@ API_BASE_URL=https://your-service.onrender.com npm run verify:deployed
 Expected result:
 
 ```
-Results: 12 passed, 0 failed
+Results: 13 passed, 0 failed
 ```
 
 The check confirms:
@@ -106,7 +107,7 @@ The check confirms:
 - `x-powered-by` is gone.
 - Anonymous admin/reporting endpoints return `401`.
 - `/student-by-hallticket/:hallticket` is `404`.
-- CORS allows localhost but blocks unknown origins.
+- CORS allows localhost and the deployed `scient-feedback*.onrender.com` frontends, but blocks unknown origins.
 - Malformed JSON is rejected without leaking internals.
 
 ## 6. Re-run the authenticated smoke test (staging only)

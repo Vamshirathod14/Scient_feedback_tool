@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './PrincipalLogin.css';
 import API_BASE_URL from './config/api';
+
+const LOGIN_TIMEOUT_MS = 60000;
 
 /**
  * The principal panel reads the same reporting data as the admin panel, so it
@@ -12,6 +14,11 @@ import API_BASE_URL from './config/api';
 function PrincipalLogin({ onLogin }) {
   const [formData, setFormData] = useState({ username: '', password: '' });
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    // Wake a sleeping Render backend while the principal types their credentials.
+    axios.get(`${API_BASE_URL}/health`, { timeout: LOGIN_TIMEOUT_MS }).catch(() => {});
+  }, []);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,7 +33,9 @@ function PrincipalLogin({ onLogin }) {
 
     setLoading(true);
     try {
-      const response = await axios.post(`${API_BASE_URL}/admin/login`, formData);
+      const response = await axios.post(`${API_BASE_URL}/admin/login`, formData, {
+        timeout: LOGIN_TIMEOUT_MS
+      });
       if (response.data.success) {
         localStorage.setItem('principalToken', response.data.token);
         localStorage.setItem('principalAdminInfo', JSON.stringify(response.data.admin));
@@ -34,7 +43,9 @@ function PrincipalLogin({ onLogin }) {
         onLogin(response.data.token, response.data.admin);
       }
     } catch (error) {
-      if (error.response?.data?.error) {
+      if (error.code === 'ECONNABORTED' || error.message?.includes('timeout')) {
+        toast.error('The server is waking up. Please wait a few seconds and try again.');
+      } else if (error.response?.data?.error) {
         toast.error(error.response.data.error);
       } else {
         toast.error('Login failed. Please try again.');

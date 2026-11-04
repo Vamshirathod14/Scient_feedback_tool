@@ -1,16 +1,25 @@
 // src/pages/Login.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import './Login.css';
 import API_BASE_URL from '../config/api';
 
+// Render free instances spin down when idle. The first request after a pause can
+// take 30-60 seconds, so give login enough time and warm the server on load.
+const LOGIN_TIMEOUT_MS = 60000;
+
 function Login({ onLogin }) {
   const [login, setLogin] = useState({ hallticket: "", password: "" });
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showTechSupport, setShowTechSupport] = useState(false);
+
+  useEffect(() => {
+    // Start waking the backend while the student is typing their credentials.
+    axios.get(`${API_BASE_URL}/health`, { timeout: LOGIN_TIMEOUT_MS }).catch(() => {});
+  }, []);
 
   // Technical Support Component
   const TechnicalSupport = () => {
@@ -141,7 +150,7 @@ function Login({ onLogin }) {
     
     try {
       const res = await axios.post(`${API_BASE_URL}/login`, login, {
-        timeout: 15000,
+        timeout: LOGIN_TIMEOUT_MS,
         headers: {
           'Content-Type': 'application/json'
         }
@@ -161,7 +170,7 @@ function Login({ onLogin }) {
       
       // Network-related errors
       if (error.code === 'ECONNABORTED' || error.message.includes('timeout')) {
-        toast.error("⌛ Connection timeout. Please check your internet and try again.");
+        toast.error("⌛ The server is waking up. Please wait a few seconds and try again.");
       } 
       else if (error.message === 'Network Error' || !error.response) {
         toast.error("🌐 Network error. Please check your internet connection.");

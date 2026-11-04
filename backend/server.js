@@ -28,6 +28,8 @@ const configuredOrigins = (process.env.CORS_ORIGINS || '')
   .filter(Boolean);
 
 const allowedOrigins = new Set([
+  'https://scient-feedback.onrender.com',
+  'http://scient-feedback.onrender.com',
   'https://scient-feedback-tool.onrender.com',
   'http://scient-feedback-tool.onrender.com',
   'https://feedback-student-panel.onrender.com',
@@ -60,7 +62,10 @@ const corsOptions = {
     if (!origin) return callback(null, true);
 
     const isLocalDevOrigin = /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin);
-    if (allowedOrigins.has(origin.replace(/\/+$/, '')) || isLocalDevOrigin) {
+    // Allow the project's own Render frontends (admin/student/principal) without
+    // requiring every service name to be listed manually.
+    const isProjectOrigin = /^https:\/\/scient-feedback(?:-[a-z0-9-]+)?\.onrender\.com$/.test(origin);
+    if (allowedOrigins.has(origin.replace(/\/+$/, '')) || isLocalDevOrigin || isProjectOrigin) {
       return callback(null, true);
     }
 

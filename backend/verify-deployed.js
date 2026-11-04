@@ -77,6 +77,19 @@ async function main() {
   });
   check('CORS blocks unknown origins', !blockedPreflight.headers.get('access-control-allow-origin'));
 
+  const projectPreflight = await fetch(`${BASE_URL}/login`, {
+    method: 'OPTIONS',
+    headers: {
+      Origin: 'https://scient-feedback.onrender.com',
+      'Access-Control-Request-Method': 'POST',
+      'Access-Control-Request-Headers': 'content-type'
+    }
+  });
+  check('CORS allows the deployed student origin',
+    projectPreflight.status === 200 &&
+      projectPreflight.headers.get('access-control-allow-origin') === 'https://scient-feedback.onrender.com',
+    `${projectPreflight.status} ${projectPreflight.headers.get('access-control-allow-origin') || 'missing'}`);
+
   // Malformed JSON should be handled without a stack trace
   const malformed = await fetch(`${BASE_URL}/admin/login`, {
     method: 'POST',
