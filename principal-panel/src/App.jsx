@@ -29,7 +29,7 @@ ChartJS.register(
   Title
 );
 
-function PrincipalPanel() {
+function PrincipalPanel({ adminInfo, onLogout }) {
   const [activeTab, setActiveTab] = useState("overview");
   const [branches] = useState(["CSE-A", "CSE-B", "CSE", "ECE", "EEE", "MECH", "CIVIL"]);
   const [academicYears] = useState(["2025-2026", "2026-2027", "2027-2028", "2028-2029"]);
@@ -961,7 +961,17 @@ function PrincipalPanel() {
   return (
     <div className="principal-panel">
       <ToastContainer />
-      <h2>Principal Panel - Performance Monitoring System</h2>
+      <div className="principal-header">
+        <div>
+          <h2>Principal Panel - Performance Monitoring System</h2>
+          {adminInfo?.username && (
+            <p className="principal-header-user">Signed in as {adminInfo.username}</p>
+          )}
+        </div>
+        <button type="button" className="principal-logout-btn" onClick={onLogout}>
+          Logout
+        </button>
+      </div>
       
       <div className="tabs">
         <button 

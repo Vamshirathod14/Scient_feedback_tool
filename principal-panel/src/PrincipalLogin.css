@@ -1,0 +1,114 @@
+.principal-login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #1f3b57 0%, #2c3e50 55%, #3498db 100%);
+  box-sizing: border-box;
+}
+
+.principal-login-card {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 32px 28px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+}
+
+.principal-login-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.principal-login-logo {
+  font-size: 42px;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.principal-login-header h1 {
+  margin: 0 0 6px;
+  font-size: 26px;
+  color: #2c3e50;
+}
+
+.principal-login-header p {
+  margin: 0;
+  color: #7f8c8d;
+  font-size: 14px;
+}
+
+.principal-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.principal-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.principal-form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #34495e;
+}
+
+.principal-form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d5dbe1;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.principal-form-group input:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.18);
+}
+
+.principal-login-btn {
+  margin-top: 6px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #3498db;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.principal-login-btn:hover:not(:disabled) {
+  background: #2f89c5;
+}
+
+.principal-login-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.principal-login-note {
+  margin: 18px 0 0;
+  text-align: center;
+  font-size: 13px;
+  color: #7f8c8d;
+}
+
+@media (max-width: 480px) {
+  .principal-login-card {
+    padding: 24px 18px;
+  }
+
+  .principal-login-header h1 {
+    font-size: 22px;
+  }
+}

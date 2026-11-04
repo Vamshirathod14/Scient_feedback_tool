@@ -6,7 +6,10 @@
  * Creates an admin account plus one demo class so every panel can be explored
  * immediately:
  *   Admin login     : admin / admin123
- *   Student login   : 25C01A7303 / Scient@123 (any seeded hallticket works)
+ *   Student login   : DEMO0003 / Scient@123 (any seeded hallticket works)
+ *
+ * Student passwords are stored as bcrypt hashes of STUDENT_COMMON_PASSWORD.
+ * Change that value (and JWT_SECRET) in backend/.env before deploying.
  *   Class / Branch  : 3-1 / CSE-A
  *   Academic year   : 2025-2026
  */
@@ -16,6 +19,7 @@ const bcrypt = require('bcryptjs');
 
 const MONGODB_URI = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/feedbackSystem';
 const COMMON_PASSWORD = process.env.STUDENT_COMMON_PASSWORD || 'Scient@123';
+const BCRYPT_ROUNDS = 12;
 
 const Admin = mongoose.model('Admin', new mongoose.Schema({
   username: { type: String, unique: true },
@@ -172,7 +176,7 @@ async function seed() {
     {
       $setOnInsert: {
         username: 'admin',
-        password: bcrypt.hashSync('admin123', 10),
+        password: bcrypt.hashSync('admin123', BCRYPT_ROUNDS),
         email: 'admin@example.com',
         role: 'admin'
       }
@@ -189,6 +193,7 @@ async function seed() {
   }
 
   // Students
+  const defaultPasswordHash = bcrypt.hashSync(COMMON_PASSWORD, BCRYPT_ROUNDS);
   for (const student of studentSeed) {
     await Student.updateOne(
       { hallticket: student.hallticket, class: CLASS, branch: BRANCH, academicYear: YEAR },
@@ -200,7 +205,7 @@ async function seed() {
           academicYear: YEAR
         },
         $setOnInsert: {
-          password: bcrypt.hashSync(student.hallticket, 10)
+          password: defaultPasswordHash
         }
       },
       { upsert: true }
