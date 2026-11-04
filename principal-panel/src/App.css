@@ -206,9 +206,14 @@
 }
 
 /* Tables */
-.weak-areas, .subject-performance, .faculty-performance {
+.weak-areas,
+.subject-performance,
+.faculty-performance,
+.top-performers,
+.need-improvement {
   margin: 20px 0;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .weak-areas h5, .subject-performance h5, .faculty-performance h5 {
@@ -327,6 +332,24 @@ tr:hover {
   
   th, td {
     padding: 8px;
+  }
+
+  /* Keep the desktop column layout on phones and let the wrapper scroll
+     sideways instead of squeezing the columns. */
+  .weak-areas table,
+  .subject-performance table,
+  .faculty-performance table,
+  .top-performers table,
+  .need-improvement table {
+    min-width: 560px;
+  }
+
+  .weak-areas th,
+  .subject-performance th,
+  .faculty-performance th,
+  .top-performers th,
+  .need-improvement th {
+    white-space: nowrap;
   }
 }
 

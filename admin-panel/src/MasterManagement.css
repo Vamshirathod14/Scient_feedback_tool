@@ -360,6 +360,10 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .master-table {
+    min-width: 640px;
+  }
+
   .master-header {
     flex-direction: column;
     gap: 15px;

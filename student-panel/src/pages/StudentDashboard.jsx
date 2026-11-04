@@ -335,6 +335,7 @@ function StudentDashboard({ studentData, onLogout }) {
                   <p className="required-note"><span className="required-asterisk">*</span> All fields are required</p>
                 </div>
                 
+                <p className="table-scroll-hint">Swipe the table sideways to rate every subject →</p>
                 <div className="table-container">
                   <table className="feedback-table">
                     <thead>

@@ -800,12 +800,17 @@ body {
   margin-bottom: 15px;
 }
 
-.detailed-results {
+.detailed-results,
+.class-report-results,
+.department-report-results {
   margin: 20px 0;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-.detailed-results table {
+.detailed-results table,
+.class-report-results table,
+.department-report-results table {
   width: 100%;
   border-collapse: collapse;
   background: white;
@@ -917,6 +922,23 @@ body {
   
   .main-content {
     padding: 1rem;
+  }
+
+  /* Preserve the desktop table layout and scroll horizontally instead of
+     squeezing columns on narrow screens. */
+  .detailed-results table,
+  .class-report-results table,
+  .department-report-results table {
+    min-width: 560px;
+  }
+
+  .detailed-results th,
+  .detailed-results td,
+  .class-report-results th,
+  .class-report-results td,
+  .department-report-results th,
+  .department-report-results td {
+    white-space: nowrap;
   }
 }
 /* Admin Header Styles */

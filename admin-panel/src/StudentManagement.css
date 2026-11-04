@@ -686,9 +686,13 @@
     justify-content: center;
   }
   
+  .students-table {
+    min-width: 760px;
+  }
+
   .students-table th,
   .students-table td {
-    padding: 12px 8px;
+    padding: 12px 10px;
     font-size: 13px;
   }
   
