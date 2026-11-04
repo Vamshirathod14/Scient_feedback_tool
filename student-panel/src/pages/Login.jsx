@@ -22,14 +22,14 @@ function Login({ onLogin }) {
         email: "vamshinaikramavath@gmail.com",
         phone: "+91 9014243908",
         role: "Lead Developer - V Soft",
-        photo: "/drjyotsna.jpeg"
+        photo: "/vamshiofficail.png"
       }
     };
 
     const handleContact = (method) => {
       switch (method) {
         case 'whatsapp':
-          window.open(`https://wa.me/918522092885?text=Hello%20Vamshi,%20I%20need%20help%20with%20the%20feedback%20system.`);
+          window.open(`https://wa.me/918522092885?text=Hello%20Dr K.Jyothsna ,%20I%20need%20help%20with%20the%20feedback%20system.`);
           break;
         case 'phone':
           window.open(`tel:${contactDetails.developer.phone}`);
@@ -77,9 +77,7 @@ function Login({ onLogin }) {
                   <button onClick={() => handleContact('whatsapp')} className="btn-whatsapp">
                     💬 WhatsApp
                   </button>
-                  <button onClick={() => handleContact('phone')} className="btn-call">
-                    📞 Call
-                  </button>
+                  
                 </div>
               </div>
             </div>
